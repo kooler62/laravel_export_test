@@ -13,9 +13,7 @@ class Student extends Model
      */
     protected $table = 'students';
     protected $primaryKey = 'id';
-
     public $timestamps = false;
-
 
     public function course()
     {
@@ -25,6 +23,5 @@ class Student extends Model
     public function address()
     {
         return $this->belongsTo('App\Models\StudentAddress');
-
     }
 }

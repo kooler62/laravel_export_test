@@ -103,11 +103,9 @@ class ExportController extends Controller
             $university = $course->university;
             $string = "\"$course_name\",\"$university\"\r\n";
             File::append($file_name, $string);
-
         }
         $file = public_path(). "/$file_name";
         $download_name = date('Y_m_d H-i-s').$file_name;
         return response()->download($file, $download_name);
-
     }
 }

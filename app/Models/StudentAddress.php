@@ -13,10 +13,7 @@ class StudentAddress extends Model
      */
     protected $table = 'student_address';
     protected $primaryKey = 'id';
-
-
     public $timestamps = false;
-
 
     public function student()
     {

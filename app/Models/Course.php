@@ -13,7 +13,6 @@ class Course extends Model
      */
     protected $table = 'courses';
     protected $primaryKey = 'id';
-
     public $timestamps = false;
 
     public function students()
