@@ -63,12 +63,12 @@
             <div><img src="/images/logo_sm.jpg" alt="Logo" title="logo"></div>
             <div  style='margin: 10px;  text-align: left'>
                 <input type="button" value="Select All"/>
-                <input type="button" value="Export"/>
+                <button type="submit" form="form" value="Submit">Export</button>
             </div>
         </div>
 
-        <form>
-
+        <form id="form" action="{{route('export')}}" method="post">
+            {{ csrf_field() }}
             <div style='margin: 10px; text-align: center;'>
                 <table class="student-table">
                     <tr>
@@ -83,7 +83,7 @@
                     @if(  count($students) > 0 )
                     @foreach($students as $student)
                     <tr>
-                        <td><input type="checkbox" name="studentId" value="{{$student['id']}}"></td>
+                        <td><input type="checkbox" name="studentId{{$student['id']}}" value="{{$student['id']}}"></td>
                         <td style=' text-align: left;'>{{$student['firstname']}}</td>
                         <td style=' text-align: left;'>{{$student['surname']}}</td>
                         <td style=' text-align: left;'>{{$student['email']}}</td>

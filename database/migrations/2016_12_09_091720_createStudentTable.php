@@ -20,12 +20,8 @@ class CreateStudentTable extends Migration
             $table->string('email');
             $table->string('nationality');
 
-            $table->integer('address_id')->nullable();
-
-
-            $table->integer('course_id')->nullable();
-
-
+            $table->integer('address_id')->unsigned()->nullable();
+            $table->integer('course_id')->unsigned()->nullable();
             $table->timestamps();
         });
     }

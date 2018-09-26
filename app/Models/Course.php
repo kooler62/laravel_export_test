@@ -12,11 +12,12 @@ class Course extends Model
      * @var string
      */
     protected $table = 'courses';
+    protected $primaryKey = 'id';
 
     public $timestamps = false;
 
     public function students()
     {
-        return $this->hasMany('students');
+        return $this->hasMany('App\Model\Student');
     }
 }

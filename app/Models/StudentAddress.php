@@ -12,6 +12,8 @@ class StudentAddress extends Model
      * @var string
      */
     protected $table = 'student_address';
+    protected $primaryKey = 'id';
+
 
     public $timestamps = false;
 

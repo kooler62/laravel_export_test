@@ -12,13 +12,14 @@ class Student extends Model
      * @var string
      */
     protected $table = 'students';
+    protected $primaryKey = 'id';
 
     public $timestamps = false;
 
 
     public function course()
     {
-        return $this->belongsTo('Courses');
+        return $this->belongsTo('App\Models\Course');
     }
 
     public function address()
