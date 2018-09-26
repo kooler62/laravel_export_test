@@ -18,5 +18,8 @@ class StudentAddress extends Model
     public $timestamps = false;
 
 
-
+    public function student()
+    {
+        return $this->hasOne('App\Models\Student');
+    }
 }

@@ -24,8 +24,7 @@ class Student extends Model
 
     public function address()
     {
-
-        return $this->hasOne('StudentAddresses', 'id');
+        return $this->belongsTo('App\Models\StudentAddress');
 
     }
 }

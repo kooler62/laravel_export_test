@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Welcome to the task</title>
+        <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
         <style>
             @import url(//fonts.googleapis.com/css?family=Lato:700);
 
@@ -62,18 +63,21 @@
         <div class="header">
             <div><img src="/images/logo_sm.jpg" alt="Logo" title="logo"></div>
             <div  style='margin: 10px;  text-align: left'>
-                <input type="button" value="Select All"/>
+                <label for="all_check">Select All</label>
                 <button type="submit" form="form" value="Submit">Export</button>
+                <a style="float: right" href="{{route('export_students')}}">export all students </a>
+                <a style="float: right" href="{{route('export_courses')}}">export all courses</a>
+
             </div>
         </div>
 
-        <form id="form" action="{{route('export')}}" method="post">
+        <form id="form" action="{{route('export')}}" method="get">
             {{ csrf_field() }}
             <div style='margin: 10px; text-align: center;'>
                 <table class="student-table">
                     <tr>
-                        <th></th>
-                        <th>Forename</th>
+                        <th><input type="checkbox" id="all_check" onclick="checkboxes_sel_all(this)"></th>
+                        <th>Firstname</th>
                         <th>Surname</th>
                         <th>Email</th>
                         <th>University</th>
@@ -100,8 +104,22 @@
             </div>
 
         </form>
-        
-        
+
+        <script>
+            function checkboxes_sel_all(obj){
+                var items = obj.form.getElementsByTagName("input"), len, i;
+                for (i = 0, len = items.length; i < len; i += 1){
+                    if (items.item(i).type && items.item(i).type === "checkbox"){
+                        if (obj.checked){
+                            items.item(i).checked = true;
+                        }
+                        else{
+                            items.item(i).checked = false;
+                        }
+                    }
+                }
+            }
+        </script>
     </body>
 
 </html>
